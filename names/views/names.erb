@@ -1,0 +1,27 @@
+<h1>Names</h1>
+
+<form class="" action="/session" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit" >Logout</button>
+</form>
+
+<a href="/names/new">New</a>
+
+<ul>
+    <% @names.each do |elem| %>
+    <li>
+      <!-- UPDATE -->
+      <a href="/names/<%= elem.id %>/edit">Edit</a>
+
+      <!-- DELETE -->
+      <form class="" action="/names/<%= elem.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit" name="button">Delete</button>
+      </form>
+
+      <a class="list" href="/names/<%= elem.id %>">
+        <%= elem.name %>
+      </a>
+    </li>
+    <% end %>
+</ul>
