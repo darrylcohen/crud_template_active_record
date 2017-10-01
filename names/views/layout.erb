@@ -6,7 +6,15 @@
   <link rel='stylesheet' href='/stylesheets/main.css'>
 </head>
 <body>
+<% if logged_in? %>
+  Logged in as <%= current_user.email %>
 
+  <form class="" action="/session" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" >Logout</button>
+  </form>
+
+<% end  %>
   <%= yield %>
 
 </body>

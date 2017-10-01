@@ -1,9 +1,5 @@
 <h1>Names</h1>
 
-<form class="" action="/session" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <button type="submit" >Logout</button>
-</form>
 
 <a href="/names/new">New</a>
 
@@ -11,7 +7,13 @@
     <% @names.each do |elem| %>
     <li>
       <!-- UPDATE -->
-      <a href="/names/<%= elem.id %>/edit">Edit</a>
+
+      <!-- Only if logged in -->
+      <% if logged_in? %> 
+
+        <a href="/names/<%= elem.id %>/edit">Edit</a>
+
+      <% end %>
 
       <!-- DELETE -->
       <form class="" action="/names/<%= elem.id %>" method="post">
